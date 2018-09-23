@@ -1,0 +1,383 @@
+{% extends 'base_layout.html'%}
+{% load static from staticfiles %}
+
+<script>
+{%block jquery%}
+	var label=[];
+	var vals=[];
+	var label2_2014=[];
+	var vals2_2014=[];
+    var label2_2018=[];
+    var vals2_2018=[];
+	var label3=[];
+	var vals3=[];
+	var label4_2014=[];
+	var vals4_2014=[];
+    var vals4_2018=[];
+	$.ajax({
+		method:"GET",
+		url: "{%url 'WC:StadChartsDataJSON'%}",
+		success: function(data){
+					if ("Chart1" in data){
+    					// console.log(data.Chart1);
+    					for (index in data.Chart1){
+    						
+    						label.push(index)
+							vals.push(data.Chart1[index])
+
+    					}
+    				}
+					
+					if ("Chart2" in data){
+						for (index in data.Chart2.Dataset2014){
+    						
+    						label2_2014.push(index)
+							vals2_2014.push(data.Chart2.Dataset2014[index])
+
+    					}
+                        for (index in data.Chart2.Dataset2018){
+                            
+                            label2_2018.push(index)
+                            vals2_2018.push(data.Chart2.Dataset2018[index])
+
+                        }
+					}
+
+					if ("Chart3" in data){
+						for (index in data.Chart3){
+    						
+    						label3.push(index)
+							vals3.push(data.Chart3[index])
+
+    					}
+
+					}
+					if ("Chart4" in data){
+					   for (index in data.Chart4.Dataset2014){
+                            
+                            label4_2014.push(index)
+                            vals4_2014.push(data.Chart4.Dataset2014[index])
+
+                        }
+                        for (index in data.Chart4.Dataset2018){
+                            
+                            // label2_2018.push(index)
+                            vals4_2018.push(data.Chart4.Dataset2018[index])
+
+                        }
+
+					}
+
+
+
+
+//Charts1 Code
+
+		var ctx = document.getElementById("myChart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: label,
+                    datasets: [{
+                        label: 'Stadium Capacity',
+                        data: vals,
+                        // showLine: false,
+                        backgroundColor: [
+                            'rgba(61,25,90,0.8)',
+                            
+                        ],
+                        borderColor: [
+                            'rgba(61,25,90,1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                stacked:true
+                            }
+                        }],
+                        xAxes:[{
+                            ticks: {
+                                display:false
+                               
+                            }
+                        }]
+                    },
+                      title: {
+                          display: true,
+                          text: 'Stadium Capacity'
+                        }
+            
+                }
+                
+
+            });
+//Charts2 Code
+		var ctx2 = document.getElementById("myChart2").getContext('2d');
+            var myChart2 = new Chart(ctx2, {
+                type: 'horizontalBar',
+                data: {
+                                labels: label2_2014,
+                                datasets: [
+                                    {
+                                        label: "World Cup 2014",
+
+                                        backgroundColor: [
+                                            'rgba(236,24,21,0.42)',
+                                            'rgba(236,24,21,0.42)',
+                                           'rgba(236,24,21,0.42)',
+                                            'rgba(236,24,21,0.42)',
+                                            'rgba(236,24,21,0.42)',
+                                            'rgba(236,24,21,0.42)',
+                                            'rgba(236,24,21,0.42)',
+                                            'rgba(236,24,21,0.42)'
+                            ],
+                                       
+                                        borderWidth: 1,
+                                        data: vals2_2014,
+                                    },
+                                            {
+                                        label: "World Cup 2018",
+
+                                        backgroundColor: [
+
+                                            'rgba(61,25,90,0.8)',
+                                            'rgba(61,25,90,0.8)',
+                                            'rgba(61,25,90,0.8)',
+                                            'rgba(61,25,90,0.8)',
+                                           'rgba(61,25,90,0.8)',
+                                            'rgba(61,25,90,0.8)',
+                                            'rgba(61,25,90,0.8)',
+                                           'rgba(61,25,90,0.8)',
+                            ],
+                                    
+                                        borderWidth: 1,
+                                        data: vals2_2018,
+                                    },
+                                           
+                                ]
+                            },
+                             options: {
+                                  
+                                      title: {
+                                          display: true,
+                                          text: 'Contienents in World Cup'
+                                        }
+                            
+                                }
+            
+                
+
+            });
+
+
+//Chart3
+			var ctx3 = document.getElementById("myChart3").getContext('2d');
+            var myChart3 = new Chart(ctx3, {
+                type: 'polarArea',
+                data: {
+                    labels: label3,
+                    datasets: [{
+                        label: 'Stadium Capacity',
+                        data: vals3,
+                        // showLine: false,
+                        backgroundColor: [
+                            'rgba(61,25,90,0.8)',
+                            'rgba(236,24,21,0.42)',
+                            'rgba(101,198,118,0.43)',
+                            'rgba(12,114,118,0.67)',
+                            'rgba(153, 102, 255, 0.42)',
+
+                     
+                        ],
+                        borderColor: [
+                            'rgba(61,25,90,1)',
+                            'rgba(236,24,21,1)',
+                            'rgba(101,198,118,1)',
+                            'rgba(12,114,118,1)',
+                            'rgba(153, 102, 255, 1)',
+                            
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                stacked:true
+                            }
+                        }]
+                    },
+                    title: {
+                          display: true,
+                          text: 'Country VS Stadiums'
+                        }
+                }
+                
+
+            });
+ //Chart 4
+			var ctx4 = document.getElementById("myChart4").getContext('2d');
+            var myChart4 = new Chart(ctx4, {
+                  type: 'doughnut',
+                      data: {
+                        datasets: [
+                    
+                        {
+                          data:vals4_2014,
+                          backgroundColor: [
+                           'rgba(61,25,90,0.8)',
+                            'rgba(236,24,21,0.42)',
+                            'rgba(101,198,118,0.43)',
+                            'rgba(12,114,118,0.67)',
+                            'rgba(153, 102, 255, 0.42)',
+                            'rgba(202,67,118,0.62)',
+                            'rgba(235,246,118,0.62)',
+                            'rgba(17,182,118,0.62)',
+                            'rgba(82,79,204,0.62)',
+                            'rgba(8,190,204,0.62)',
+                            'rgba(189,65,39,0.62)',
+                            'rgba(15,37,39,0.62)',
+                            'rgba(47,114,105,0.62)',
+                            'rgba(145,185,163,0.62)',
+                            'rgba(17,124,163,0.62)',
+                            'rgba(12,184,53,0.62)',
+                            'rgba(32,140,53,0.62)',
+                            'rgba(201,240,53,0.62)',
+                            'rgba(107,30,53,0.62)',
+                            'rgba(43,104,220,0.62)',
+                            'rgba(180,201,220,0.62)',
+                            'rgba(33,139,138,0.62)',
+                            'rgba(130,205,138,0.62)',
+                            'rgba(148,32,138,0.62)',
+                            'rgba(201,165,138,0.62)',
+                            'rgba(11,131,138,0.62)',
+                            'rgba(22,77,138,0.62)',
+                            'rgba(134,23,52,0.62)',
+                            'rgba(86,54,52,0.62)',
+                            'rgba(249,127,52,0.62)',
+                            'rgba(212,219,52,0.62)',
+                            'rgba(13,195,52,0.62)'
+
+                          ],
+                          label: 'World Cup 2014'
+                        },
+                      
+                        {
+                          data: vals4_2018,
+                          backgroundColor: [
+                                 'rgba(61,25,90,0.8)',
+                            'rgba(236,24,21,0.42)',
+                            'rgba(101,198,118,0.43)',
+                            'rgba(12,114,118,0.67)',
+                            'rgba(153, 102, 255, 0.42)',
+                            'rgba(202,67,118,0.62)',
+                            'rgba(235,246,118,0.62)',
+                            'rgba(17,182,118,0.62)',
+                            'rgba(82,79,204,0.62)',
+                            'rgba(8,190,204,0.62)',
+                            'rgba(189,65,39,0.62)',
+                            'rgba(15,37,39,0.62)',
+                            'rgba(47,114,105,0.62)',
+                            'rgba(145,185,163,0.62)',
+                            'rgba(17,124,163,0.62)',
+                            'rgba(12,184,53,0.62)',
+                            'rgba(32,140,53,0.62)',
+                            'rgba(201,240,53,0.62)',
+                            'rgba(107,30,53,0.62)',
+                            'rgba(43,104,220,0.62)',
+                            'rgba(180,201,220,0.62)',
+                            'rgba(33,139,138,0.62)',
+                            'rgba(130,205,138,0.62)',
+                            'rgba(148,32,138,0.62)',
+                            'rgba(201,165,138,0.62)',
+                            'rgba(11,131,138,0.62)',
+                            'rgba(22,77,138,0.62)',
+                            'rgba(134,23,52,0.62)',
+                            'rgba(86,54,52,0.62)',
+                            'rgba(249,127,52,0.62)',
+                            'rgba(212,219,52,0.62)',
+                            'rgba(13,195,52,0.62)'
+
+                          ],
+                          label: 'World Cup 2018'
+                        }
+                       
+                        ],
+                        labels: label4_2014
+                      },
+                      options: {
+                        responsive: true,
+                        legend: {
+                          position: 'top',
+                        },
+                        title: {
+                          display: true,
+                          text: 'Goals scored by Countries'
+                        },
+                        animation: {
+                          animateScale: true,
+                          animateRotate: true
+                        },
+                        tooltips: {
+                          callbacks: {
+                            label: function(item, data) {
+                            console.log(data.labels, item);
+                                return data.datasets[item.datasetIndex].label+ ": "+ data.labels[item.index]+ ": "+ data.datasets[item.datasetIndex].data[item.index];
+                            }
+                        }
+                    }
+                      }
+             
+             
+                
+
+            });			
+
+
+
+		},
+		error:function(error_data){
+				console.log("error")
+				console.log(data)
+
+		}
+	
+
+
+})
+
+
+
+{% endblock %}
+</script>
+
+{% block content %}
+{% include 'css.html'%}
+<div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                   <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                   <canvas id="myChart2" width="200" height="200"></canvas>
+                </div>
+                
+            </div>
+             <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                   <canvas id="myChart3" width="400" height="400"></canvas>
+                </div>
+               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                   <canvas id="myChart4" width="400" height="400"></canvas>
+                </div>
+                
+            </div>
+        </div>
+{% endblock%}

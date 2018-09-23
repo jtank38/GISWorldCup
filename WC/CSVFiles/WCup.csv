@@ -1,0 +1,65 @@
+MatchNumber,date,MatchName,stadiumcod
+1,2014-06-12,Matchday 1,corinthians
+2,2014-06-13,Matchday 2,dasdunas
+3,2014-06-13,Matchday 2,fontenova
+4,2014-06-13,Matchday 2,pantanal
+5,2014-06-14,Matchday 3,mineirao
+6,2014-06-14,Matchday 3,pernambuco
+7,2014-06-14,Matchday 3,castelao
+8,2014-06-14,Matchday 3,amazonia
+9,2014-06-15,Matchday 4,nacionaldebrasilia
+10,2014-06-15,Matchday 4,beirario
+11,2014-06-15,Matchday 4,maracana
+12,2014-06-16,Matchday 5,dabaixada
+13,2014-06-16,Matchday 5,fontenova
+14,2014-06-16,Matchday 5,dasdunas
+15,2014-06-17,Matchday 6,mineirao
+16,2014-06-17,Matchday 6,pantanal
+17,2014-06-17,Matchday 6,castelao
+18,2014-06-18,Matchday 7,amazonia
+19,2014-06-18,Matchday 7,maracana
+20,2014-06-18,Matchday 7,beirario
+21,2014-06-19,Matchday 8,nacionaldebrasilia
+22,2014-06-19,Matchday 8,dasdunas
+23,2014-06-19,Matchday 8,corinthians
+24,2014-06-20,Matchday 9,pernambuco
+25,2014-06-20,Matchday 9,fontenova
+26,2014-06-20,Matchday 9,dabaixada
+27,2014-06-21,Matchday 10,mineirao
+28,2014-06-21,Matchday 10,pantanal
+29,2014-06-21,Matchday 10,castelao
+30,2014-06-22,Matchday 11,amazonia
+31,2014-06-22,Matchday 11,maracana
+32,2014-06-22,Matchday 11,beirario
+33,2014-06-23,Matchday 12,nacionaldebrasilia
+34,2014-06-23,Matchday 12,pernambuco
+35,2014-06-23,Matchday 12,dabaixada
+36,2014-06-23,Matchday 12,corinthians
+37,2014-06-24,Matchday 13,pantanal
+38,2014-06-24,Matchday 13,castelao
+39,2014-06-24,Matchday 13,dasdunas
+40,2014-06-24,Matchday 13,mineirao
+41,2014-06-25,Matchday 14,amazonia
+42,2014-06-25,Matchday 14,maracana
+43,2014-06-25,Matchday 14,beirario
+44,2014-06-25,Matchday 14,fontenova
+45,2014-06-26,Matchday 15,pernambuco
+46,2014-06-26,Matchday 15,nacionaldebrasilia
+47,2014-06-26,Matchday 15,corinthians
+48,2014-06-26,Matchday 15,dabaixada
+49,2014-06-28,Round of 16,mineirao
+50,2014-06-28,Round of 16,maracana
+51,2014-06-29,Round of 16,castelao
+52,2014-06-29,Round of 16,pernambuco
+53,2014-06-30,Round of 16,nacionaldebrasilia
+54,2014-06-30,Round of 16,beirario
+55,2014-07-01,Round of 16,corinthians
+56,2014-07-01,Round of 16,fontenova
+57,2014-07-04,Quarter-finals,castelao
+58,2014-07-04,Quarter-finals,maracana
+59,2014-07-05,Quarter-finals,fontenova
+60,2014-07-05,Quarter-finals,nacionaldebrasilia
+61,2014-07-08,Semi-finals,mineirao
+62,2014-07-09,Semi-finals,corinthians
+63,2014-07-12,Match for third place,nacionaldebrasilia
+64,2014-07-13,Final,maracana

@@ -1,0 +1,55 @@
+{% extends 'base_layout.html'%}
+{% load static from staticfiles %}
+
+{%load leaflet_tags %}
+
+{%block content%}
+
+<h1>Routing/Explore</h1>
+<script type="text/javascript">
+	function our_layers(map,options) {
+			
+		// 	var datasets= new L.GeoJSON.AJAX( "{% url 'WC:StadiumsData'  %}",{
+		// 	onEachFeature: function(feature,layer){
+		// 		layer.bindPopup('<h3> Stadium: '+feature.properties.stadiumnam.toString()+'</h3>'+'<br><h3>Capacity: '+feature.properties.stadium_ca.toString()+'<br></h3>'+
+		// 			'<br><h3>City : '+feature.properties.city_name.toString()+'<br></h3>'+
+		// 			'<br><h3>Latitude : '+feature.properties.latitude.toString()+'<br></h3>'+
+		// 			'<br><h3>Longitude : '+feature.properties.longitude.toString()+'<br></h3>')
+		// 			},
+		// 	pointToLayer: function(feature, latlng) {
+  //       			// return new L.CircleMarker(latlng, {radius: 10, fillOpacity: 0.85});
+  //       			var iconnew=L.icon({iconUrl: '/media/stadium.png', iconSize: [38, 95],iconAnchor: [22, 94],popupAnchor: [-3, -76],});
+  //       			return L.marker(latlng, {icon: iconnew});
+  //       			}
+
+			
+			
+		// 	});
+	
+		// datasets.addTo(map);
+	L.Routing.control({lineOptions: {
+           styles: [
+               {color: 'white', opacity: 0.9, weight: 9},
+               {color: '#FC8428', opacity: 1, weight: 3}
+           ]
+        },
+			  waypoints: [
+			    L.latLng(-23.54552155,-46.4741903596),
+			    L.latLng(-24.00190665, -46.4130838831)
+			  ]
+
+			}).addTo(map);
+
+		var miniMap = new L.Control.GlobeMiniMap({topojsonSrc:'/static/MiniMap/world.json'});
+		miniMap.addTo(map);		
+
+
+	}
+
+
+</script>>
+{% leaflet_map "gis" callback="window.our_layers" %}
+
+
+
+{% endblock%}

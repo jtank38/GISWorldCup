@@ -1,0 +1,27 @@
+{% extends 'base_layout.html'%}
+{% load static from staticfiles %}
+
+{%load leaflet_tags %}
+
+{%block content%}
+
+<form action='.' method="POST">  {%csrf_token %}   
+	<!-- <action POST send form to different url> -->
+	<!-- <select name="stdiumid">
+	{% for stadiums in SData %}
+   <option value="{{stadiums.stadiumcod}}"
+       {% if stadiums == current_stadiums %}selected="selected"{% endif %}>
+       {{stadiums.stadiumnam}}
+   </option>
+{% endfor %}
+</select> -->
+
+	{{form.as_p}}
+	<input type="submit" value="save">
+		
+
+</form>
+{% endblock%}
+
+
+

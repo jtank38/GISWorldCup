@@ -1,0 +1,75 @@
+{% load static from staticfiles %}
+
+
+<html lang="en">
+
+{% load leaflet_tags %}
+<head>
+    <meta charset="UTF-8">
+<title>MapLayout</title>
+
+{% leaflet_js plugins="ALL" %}
+{% leaflet_css plugins="ALL" %}
+
+  {% include 'js.html'%}
+ 
+ <link rel="stylesheet" type="text/css" href="{% static 'Leaflet-LayeredControl/leaflet.groupedlayercontrol.min.css' %}">
+ <link rel="stylesheet" type="text/css" href="{% static 'routing/leaflet-routing-machine.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
+<script type="text/javascript" src="{% static 'dist/leaflet.ajax.js' %}"></script>
+<script type="text/javascript" src="{% static 'Leaflet-LayeredControl/leaflet.groupedlayercontrol.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'PruneCluster/LeafletStyleSheet.css' %}">
+    <script type="text/javascript" src="{% static 'PruneCluster/PruneCluster.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'routing/leaflet-routing-machine.css' %}">
+      <script type="text/javascript" src="{% static 'routing/leaflet-routing-machine.js' %}"></script>
+       <!-- <script type="text/javascript" src="{% static 'bounce/leaflet.smoothmarkerbouncing.js' %}"></script> -->
+       <script type="text/javascript" src="{% static 'multistyle/multi-style-layer.js' %}"></script>
+       <script type="text/javascript" src="{% static 'exampledata.js' %}"></script>
+<script type="text/javascript" src="{% static 'MiniMap/Control.GlobeMiniMap.js' %}"></script>
+       <link rel="stylesheet" href="{% static 'style.css' %}">
+       
+
+
+<h1><a href="{% url 'WC:list' %}">Fifa-Visualize</a> </h1>
+    <nav>
+        <ul>
+          <li>
+           <a href="/Query/">Query</a>
+
+          </li>
+            <li>
+                <a href="/Routing/">Routing</a>
+            </li>
+            <li>
+                <a href="/Projects/">Get In Touch</a>
+            </li>
+        </ul>
+    </nav>
+
+
+</head>
+
+
+<body>
+
+<div class="wrapper">
+{%block content%}
+    {% endblock %}
+
+</div>
+
+<script >
+  $(document).ready(function(){
+    
+    {% block jquery %}
+    {% endblock %}
+ 
+  })
+
+
+</script>
+
+</body>
+</html>

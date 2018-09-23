@@ -1,0 +1,65 @@
+MatchNumber,date,MatchName,stadiumcod
+WC-2018-1,2018-06-14,Matchday 1,luzhniki
+WC-2018-2,2018-06-15,Matchday 2,ekaterinburg
+WC-2018-3,2018-06-15,Matchday 2,fisht
+WC-2018-4,2018-06-15,Matchday 2,saintpetersburg
+WC-2018-5,2018-06-16,Matchday 3,kazan
+WC-2018-6,2018-06-16,Matchday 3,mordovia
+WC-2018-7,2018-06-16,Matchday 3,spartak
+WC-2018-8,2018-06-16,Matchday 3,kaliningrad
+WC-2018-9,2018-06-17,Matchday 4,rostov
+WC-2018-10,2018-06-17,Matchday 4,samara
+WC-2018-11,2018-06-17,Matchday 4,luzhniki
+WC-2018-12,2018-06-18,Matchday 5,nizhnynovgorod
+WC-2018-13,2018-06-18,Matchday 5,fisht
+WC-2018-14,2018-06-18,Matchday 5,volgograd
+WC-2018-15,2018-06-19,Matchday 6,spartak
+WC-2018-16,2018-06-19,Matchday 6,mordovia
+WC-2018-17,2018-06-19,Matchday 6,saintpetersburg
+WC-2018-18,2018-06-20,Matchday 7,rostov
+WC-2018-19,2018-06-20,Matchday 7,luzhniki
+WC-2018-20,2018-06-20,Matchday 7,kazan
+WC-2018-21,2018-06-21,Matchday 8,ekaterinburg
+WC-2018-22,2018-06-21,Matchday 8,samara
+WC-2018-23,2018-06-21,Matchday 8,nizhnynovgorod
+WC-2018-24,2018-06-22,Matchday 9,volgograd
+WC-2018-25,2018-06-22,Matchday 9,saintpetersburg
+WC-2018-26,2018-06-22,Matchday 9,kaliningrad
+WC-2018-27,2018-06-23,Matchday 10,fisht
+WC-2018-28,2018-06-23,Matchday 10,rostov
+WC-2018-29,2018-06-23,Matchday 10,spartak
+WC-2018-30,2018-06-24,Matchday 11,nizhnynovgorod
+WC-2018-31,2018-06-24,Matchday 11,kazan
+WC-2018-32,2018-06-24,Matchday 11,ekaterinburg
+WC-2018-33,2018-06-25,Matchday 12,samara
+WC-2018-34,2018-06-25,Matchday 12,volgograd
+WC-2018-35,2018-06-25,Matchday 12,mordovia
+WC-2018-36,2018-06-25,Matchday 12,kaliningrad
+WC-2018-37,2018-06-26,Matchday 13,luzhniki
+WC-2018-38,2018-06-26,Matchday 13,fisht
+WC-2018-39,2018-06-26,Matchday 13,saintpetersburg
+WC-2018-40,2018-06-26,Matchday 13,rostov
+WC-2018-41,2018-06-27,Matchday 14,spartak
+WC-2018-42,2018-06-27,Matchday 14,nizhnynovgorod
+WC-2018-43,2018-06-27,Matchday 14,kazan
+WC-2018-44,2018-06-27,Matchday 14,ekaterinburg
+WC-2018-45,2018-06-28,Matchday 15,kaliningrad
+WC-2018-46,2018-06-28,Matchday 15,mordovia
+WC-2018-47,2018-06-28,Matchday 15,volgograd
+WC-2018-48,2018-06-28,Matchday 15,samara
+WC-2018-49,2018-06-30,Round of 16,fisht
+WC-2018-50,2018-06-30,Round of 16,kazan
+WC-2018-51,2018-07-01,Round of 16,luzhniki
+WC-2018-52,2018-07-01,Round of 16,nizhnynovgorod
+WC-2018-53,2018-07-02,Round of 16,samara
+WC-2018-54,2018-07-02,Round of 16,rostov
+WC-2018-55,2018-07-03,Round of 16,saintpetersburg
+WC-2018-56,2018-07-03,Round of 16,spartak
+WC-2018-57,2018-07-06,Quarter-finals,nizhnynovgorod
+WC-2018-58,2018-07-06,Quarter-finals,kazan
+WC-2018-59,2018-07-07,Quarter-finals,fisht
+WC-2018-60,2018-07-07,Quarter-finals,samara
+WC-2018-61,2018-07-10,Semi-finals,saintpetersburg
+WC-2018-62,2018-07-11,Semi-finals,luzhniki
+WC-2018-63,2018-07-14,Match for third place,saintpetersburg
+WC-2018-64,2018-07-15,Final,luzhniki

@@ -1,0 +1,137 @@
+{% extends 'base_layout.html'%}
+{% load static from staticfiles %}
+
+{%load leaflet_tags %}
+
+{%block content%}
+
+<h1>Routing/Explore</h1>
+
+
+
+<script type="text/javascript">
+			function our_layers(map,options) {
+				var datasets= new L.GeoJSON.AJAX( "{% url 'WC:StadiumsData'  %}",{
+      onEachFeature: function(feature,layer){
+        layer.bindPopup('<h3> Stadium: '+feature.properties.stadiumnam.toString()+'</h3>'+'<br><h3>Capacity: '+feature.properties.stadium_ca.toString()+'<br></h3>'+
+          '<br><h3>City : '+feature.properties.city_name.toString()+'<br></h3>'+
+          '<br><h3>Latitude : '+feature.properties.latitude.toString()+'<br></h3>'+
+          '<br><h3>Longitude : '+feature.properties.longitude.toString()+'<br></h3>'+
+							'<div class="wrapper"><a href="#"><img class="pic" src="'+feature.properties.picurl.toString()+'" alt="Oops!" height="50"; width="50"></a></div>')
+          },
+      pointToLayer: function(feature, latlng) {
+              // return new L.CircleMarker(latlng, {radius: 10, fillOpacity: 0.85});
+              var iconnew=L.icon({iconUrl: '/media/stadium.png', iconSize: [38, 95],iconAnchor: [22, 94],popupAnchor: [-3, -76],});
+              return L.marker(latlng, {icon: iconnew});
+              }
+
+      
+      
+      });
+  
+    datasets.addTo(map);
+				
+
+
+
+
+
+//ClusterMaps
+				var lat=[];
+				var long=[];
+				var city=[];
+				var stadium=[];
+				var picurl=[];
+				var capacity=[];
+				var country=[];
+				var team=[];
+									
+				$.ajax({ 
+					    type: 'GET', 
+					    url: "{% url 'WC:StadClubsDataJSON' %}", 
+					    dataType: 'json',
+					    success: function (data) { 
+					    			
+					        
+					        $.each(data,function(index,element){
+					        		
+					        		// console.log(element.fields.team)
+					        		lat.push(element.fields.latitude);
+					        		long.push(element.fields.longitude);
+					        		city.push(element.fields.city);
+					        		stadium.push(element.fields.stadium);
+					        		picurl.push(element.fields.picurl);
+					        		capacity.push(element.fields.capacity);
+					        		country.push(element.fields.country);
+					        		team.push(element.fields.team);
+					        							        		
+					        })
+					
+							var leafletView = new PruneClusterForLeaflet();
+
+						    var size = 1000;
+						    var markers = [];
+						    var iterator1 = lat.entries();
+
+
+						    for (var i = 0; i < lat.length; ++i) {
+						        
+						      index=iterator1.next().value
+						      num=index[1]
+						      var marker = new PruneCluster.Marker(num,long[index[0]]);
+						      marker.data.popup = '<h3> Team:' +team[index[0]]+'</h3>'+'<br><h3> Stadium:' +stadium[index[0]]+'</h3>'+'<br><h3>Capacity: '+capacity[index[0]]+'</h3>'+'<br><h3>City: '+city[index[0]]+'</h3>'
+						      +'<br><h3>Latitude: '+lat[index[0]]+'</h3>' +'<br><h3>Longitude: '+long[index[0]]+'</h3>'
+						      +'<br><h3>Country: '+country[index[0]]+'</h3>'+'<div class="wrapper"><a href="#"><img class="pic" src="'+picurl[index[0]]+'" alt="Oops!" height="50"; width="50"></a></div>'
+							marker.data.icon = L.icon({iconUrl: '/media/stadium.png', iconSize: [38, 95],iconAnchor: [22, 94],popupAnchor: [-3, -76],});
+						        markers.push(marker);
+						        leafletView.RegisterMarker(marker);
+						    
+						    }
+						  
+						    window.setInterval(function () {
+						        for (i = 0; i < size / 2; ++i) {
+						            var coef = i < size / 8 ? 10 : 1;
+						            var ll = markers[i].position;
+						            ll.lat += (Math.random() - 0.5) * 0.00001 * coef;
+						            ll.lng += (Math.random() - 0.5) * 0.00002 * coef;
+						        }
+
+						        leafletView.ProcessView();
+						    }, 500);
+
+						    map.addLayer(leafletView);
+						    var groupedOverlays = {
+						      "Landmarks": {
+						        "WorldCupStadiums": datasets,
+						        "ClubStadiums": leafletView
+						      }
+						    };
+						    var options = {
+						      // Make the "Landmarks" group exclusive (use radio inputs)
+						      exclusiveGroups: ["Landmarks"],
+						      // Show a checkbox next to non-exclusive group labels for toggling all
+						      groupCheckboxes: true
+						    };
+
+						    // Use the custom grouped layer control, not "L.control.layers"
+						    var layerControl = L.control.groupedLayers(ExampleData.Basemaps, groupedOverlays, options);
+						    map.addControl(layerControl);
+								}
+									});
+
+							var miniMap = new L.Control.GlobeMiniMap({topojsonSrc:'/static/MiniMap/world.json'});
+							miniMap.addTo(map);
+							
+							
+							
+
+						 				
+
+}																																		
+</script>
+
+{% leaflet_map "gis" callback="window.our_layers" %}
+
+
+
+{% endblock%}
